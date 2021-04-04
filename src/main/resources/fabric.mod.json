@@ -1,0 +1,29 @@
+{
+    "schemaVersion": 1,
+    "id": "what-are-enums",
+    "version": "${version}",
+    "name": "What Are Enums",
+    "description": "What are enums? Who needs those?",
+    "authors": [
+        "sschr15"
+    ],
+    "contact": {
+        "website": "https://concern.i.ng/",
+        "repo": "https://github.com/sschr15/what-are-enums"
+    },
+    "license": "MIT",
+    "environment": "*",
+    "entrypoints": {
+        "khasm": [
+            {
+                "adapter": "kotlin",
+                "value": "sschr15.fabricmods.concern.whatareenums.EnumDeleter"
+            }
+        ]
+    },
+    "depends": {
+        "fabricloader": ">=0.11.3",
+        "fabric-language-kotlin": "1.4.21",
+        "minecraft": "*"
+    }
+}
