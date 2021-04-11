@@ -2,17 +2,14 @@
 
 package sschr15.fabricmods.concern.whatareenums
 
-fun <T : Enum<T>> createNewEnum(enum: Class<T>, name: String, vararg parameters: Any?): T {
+internal fun <T : Enum<T>> createNewEnum(enum: Class<T>, name: String, vararg parameters: Any?): T {
     val constructor = enum.constructors[0]
-    val ordinal = getLastOrdinal(enum) + 1
-    ordinalMap[enum] = ordinalMap[enum]!! + 1
-    val t = constructor.newInstance(name, ordinal,  *parameters)
     @Suppress("UNCHECKED_CAST")
-    return t as T
-}
+    val values = enum.getField("ENUM_DELETER_VALUES").get(null) as MutableList<T>
+    val ordinal = values.maxOf { it.ordinal } + 1
+    @Suppress("UNCHECKED_CAST")
+    val t = constructor.newInstance(name, ordinal,  *parameters) as T
 
-private fun getLastOrdinal(enum: Class<out Enum<*>>) = ordinalMap.getOrPut(enum) {
-    enum.fields.filter { it.type == enum }.map { (it.get(null) as Enum<*>).ordinal }.maxOrNull()!!
+    values.add(t)
+    return t
 }
-
-private val ordinalMap = mutableMapOf<Class<out Enum<*>>, Int>()
