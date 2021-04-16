@@ -35,8 +35,8 @@ Load it at the proper time (in `fabric.mod.json`):
         "whatareenums": {
             "package": "my.package.with.enum.extenders",
             "enums": {
-                "sound.SoundCategory": "MoreSoundCategories",
-                "util.Direction": "direction.ConcernDirectionChange"
+                "net.minecraft.sound.SoundCategory": "MoreSoundCategories",
+                "net.minecraft.util.Direction": "direction.ConcernDirectionChange"
             }
         }
     }
