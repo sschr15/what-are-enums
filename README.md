@@ -22,8 +22,6 @@ dependencies {
 In a file:
 
 ```kotlin
-import sschr15.fabricmods.concern.whatareenums.enum
-
 object MoreSoundCategories {
     @JvmStatic val CUSTOM_CATEGORY by enum(SoundCategory::class, "custom")
 }
@@ -36,11 +34,10 @@ Load it at the proper time (in `fabric.mod.json`):
     "custom": {
         "whatareenums": {
             "package": "my.package.with.enum.extenders",
-            "classes": [
-                "Example",
-                "packages.as.Well",
-                "WhatEvenIsThis"
-            ]
+            "enums": {
+                "sound.SoundCategory": "MoreSoundCategories",
+                "util.Direction": "direction.ConcernDirectionChange"
+            }
         }
     }
 }

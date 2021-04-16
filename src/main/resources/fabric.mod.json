@@ -9,7 +9,8 @@
     ],
     "contact": {
         "website": "https://concern.i.ng/",
-        "repo": "https://github.com/sschr15/what-are-enums"
+        "repo": "https://github.com/sschr15/what-are-enums",
+        "issues": "https://github.com/sschr15/what-are-enums/issues"
     },
     "license": "MIT",
     "environment": "*",
@@ -23,7 +24,14 @@
     },
     "depends": {
         "fabricloader": ">=0.11.3",
-        "fabric-language-kotlin": "1.4.21",
+        "fabric-language-kotlin": ">=1.4.21",
         "minecraft": "*"
+    },
+    "custom": {
+        "modmenu": {
+            "badges": [
+                "library"
+            ]
+        }
     }
 }
